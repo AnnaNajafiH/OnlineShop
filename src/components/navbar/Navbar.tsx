@@ -5,7 +5,7 @@ import { FaShoppingCart } from 'react-icons/fa'; // 'fa' is Font Awesome
 
 
 function Navbar() {
-const{cartQty}=useShoppingCartContext();
+const{cartQty, handleLogout}=useShoppingCartContext();
 
   return (
     <div className='h-14 border-b shadow flex items-center'>
@@ -20,6 +20,7 @@ const{cartQty}=useShoppingCartContext();
         </li>
     </ul>
     <div>
+        <button onClick={handleLogout}>LogOut</button>
         <Link className='relative' to="/cart">
         <button><FaShoppingCart size={30}/></button>
         <span className='absolute bg-red-500 text-white rounded-full px-2 flex justify-center items-center -top-5  -right-4 text-sm'>{cartQty !==0 ?cartQty : "0"}</span>

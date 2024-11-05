@@ -57,7 +57,7 @@ function Product() {
 
             <Button 
             className='mt-2 w-full'
-            variant= "warning"
+            variant= "primary"
             onClick={()=>
               handleDecreaseProductQty(parseInt(params.id as string))
             }

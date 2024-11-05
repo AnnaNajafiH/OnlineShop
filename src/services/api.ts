@@ -16,3 +16,14 @@ export async function getProduct(id: string|number){
 }
 
 
+export async function login(username:string, password:string){
+    const {data}=await client ({
+        method: "post",
+        url:"/login",
+        data:{
+            username,
+            password,
+        }   
+    })
+    return data
+}
