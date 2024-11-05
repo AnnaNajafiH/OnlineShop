@@ -1,7 +1,9 @@
-import {createContext } from "react";
+import {createContext, useEffect } from "react";
 import {useState} from "react";
 import { useContext } from "react"; 
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useNavigate } from "react-router-dom";
+import { login } from "../services/api";
 
 
 interface ShoppingCartProvider{
@@ -19,6 +21,9 @@ interface ShoppingCartContext{
     getProductQty:(id:number)=>number;
     handleRemoveProduct:(id:number) =>void;
     cartQty:number;
+    isLoggedIn:boolean;
+    handleLogin:(username:string, password:string)=>void;
+    handleLogout:()=>void;
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -96,9 +101,38 @@ const handleRemoveProduct =(id:number) => {
 //=================================================================================================
 const cartQty= cartItems.reduce((totalQty, item)=>totalQty+item.qty,0);
 
+//=================================================================================================
+//logIn
+//=================================================================================================
+const [isLoggedIn, setIsLoggedIn] = useState(false);
+const navigate=useNavigate();
+
+
+const handleLogin = (username:string, password:string) => {
+    login(username, password).finally(()=>{   //it should be then instead of finally, but to make it work, we use finally here 
+        let token = "shghasjhjcnkmlasmnmncxmnmxnskjfkdjfkdfgkdfgjkjdfgjsklfkas";
+        localStorage.setItem("token", token);
+        setIsLoggedIn(true);
+    })
+    setIsLoggedIn(true);
+    navigate("/cart");
+    }
+
+const handleLogout = () => {
+    setIsLoggedIn(false);
+    navigate("/login");
+    localStorage.removeItem("token");
+    }
+
+useEffect(()=>{
+    let token = localStorage.getItem("token");
+    if (token){
+        setIsLoggedIn(true);
+    }
+},[])
 
     return(
-    <ShoppingCartContext.Provider value={{cartItems, handleIncreaseProductQty,handleDecreaseProductQty,getProductQty, handleRemoveProduct,cartQty}}>
+    <ShoppingCartContext.Provider value={{cartItems, handleIncreaseProductQty,handleDecreaseProductQty,getProductQty, handleRemoveProduct,cartQty,isLoggedIn,handleLogin, handleLogout}}>
         {children}
     </ShoppingCartContext.Provider>
     )
