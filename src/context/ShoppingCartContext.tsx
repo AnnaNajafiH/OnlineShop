@@ -26,8 +26,11 @@ interface ShoppingCartContext{
     handleLogout:()=>void;
 }
 
-export const ShoppingCartContext = createContext({} as ShoppingCartContext);
+export const ShoppingCartContext = createContext({} as ShoppingCartContext);   
+//if you try to access a property or method that isn’t in ShoppingCartContext, you’ll get a type error.
 
+
+//a custom hook that returns the context value
 export const useShoppingCartContext=()=>{
     return useContext(ShoppingCartContext)
 }
@@ -39,6 +42,9 @@ export function ShoppingCartProvider({children}:ShoppingCartProvider){
     // const [cartItem1, setCartItems1] = useLocalStorage<CartItem[]> ("cartItems",[]);
      
 
+//=================================================================================================
+// Increase the quantity of the product in the cart
+//=================================================================================================
 const handleIncreaseProductQty=(id:number)=>{
     setCartItems((currentItems)=>{
     // Check if the item is already in the cart
@@ -64,7 +70,7 @@ const handleIncreaseProductQty=(id:number)=>{
 //=================================================================================================
 
 const handleDecreaseProductQty=(id:number)=>{
-    setCartItems((currentItems)=>{
+    setCartItems((currentItems)=>{          //currentItems:the latest value of cartItems
     let selectedItem= currentItems.find ((item)=> item.id == id)
     if (selectedItem?.qty===1){
         return currentItems.filter((item)=>item.id!==id)
