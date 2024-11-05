@@ -3,8 +3,8 @@ import ProductItem from '../../components/productItem/ProductItem'
 import Container from '../../components/container/Container'
 import { Link } from 'react-router-dom'
 import { IProduct } from '../../types/servers'
-
 import { getProducts } from '../../services/api'
+
 const Store = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
 
