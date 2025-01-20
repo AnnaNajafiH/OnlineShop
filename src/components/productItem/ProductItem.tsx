@@ -44,3 +44,5 @@ function ProductItem({ title, price, description, image }: TProductItem) {
 }
 
 export default ProductItem;
+
+

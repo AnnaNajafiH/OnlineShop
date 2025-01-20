@@ -3,7 +3,7 @@
 import { Link, useNavigate } from 'react-router-dom'
 import Container from '../container/Container'
 import { useShoppingCartContext } from '../../context/ShoppingCartContext'
-import { FaShoppingCart } from 'react-icons/fa'; 
+import { FaShoppingCart, FaUser } from 'react-icons/fa'; 
 import { useState } from 'react';
 
 function Navbar() {
@@ -23,11 +23,11 @@ const handleLogoutAndCloseMenu = () => {
   };
   
   return (
-    <div className='h-18 border-b shadow flex items-center bg-white'>
+    <div className='h-18 border-b shadow bg-white flex items-center'>
         <Container>
         <div className='flex justify-between items-center'>
      {/* Left Side - Navigation Links */}
-        <ul className='flex space-x-6 text-lg font-semibold text-gray-600'>
+      <ul className='flex space-x-6 text-lg font-semibold text-gray-600'>
         <li className='hover:text-gray-800 transition duration-200'>
             <Link to="/" >Home</Link>
         </li>
@@ -41,7 +41,7 @@ const handleLogoutAndCloseMenu = () => {
         <div className='relative'>
             <button onClick={() => setIsMenuOpen (!isMenuOpen)}
                 className='font-semibold text-gray-600 hover:text-gray-800'>
-                    Account
+                <FaUser style={{ fontSize: '24px', color: '#333' }} />
             </button>
             {isMenuOpen && (
               <div className='absolute right-0 mt-2 w-32 bg-white border rounded-lg shadow-lg'>
@@ -68,16 +68,7 @@ const handleLogoutAndCloseMenu = () => {
                 </ul>
               </div>
             )}
-            {/* {isMenuOpen && (
-                <div className='absolute right-0 mt-2 w-32 bg-white border rounded-lg shadow-lg'>
-                    <div className='text-sm text-gray-600'>
-                        <button className='px-4 py-2 hover:font-semibold cursor-pointer'
-                        onClick={handleLogoutAndCloseMenu}>
-                            Logout
-                        </button>
-                    </div>
-                </div>
-            )} */}
+           
         </div>
         {/* Cart Icon */}
         <Link to="/cart" className='relative flex items-center'>

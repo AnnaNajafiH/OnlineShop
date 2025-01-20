@@ -6,7 +6,7 @@ const client=axios.create({
 
 export async function getProducts(){
     const {data}=await client("/Products")
-    console.log(data);
+    // console.log(data);
     return data
 }
 

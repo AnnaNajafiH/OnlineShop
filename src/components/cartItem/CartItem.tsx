@@ -33,7 +33,7 @@ function CartItem({id,qty}:ICartItem ){
         <div className='ml-9'>
             <h3 className="m-5">{product?.title}</h3>
             <div className='mt-2 ml-5'>
-                <Button onClick={()=>handleIncreaseProductQty(id)} variant='primary'>+</Button>
+            <Button onClick={()=>handleIncreaseProductQty(id)} variant='primary'>+</Button>
             <span className='mx-2'>{qty}</span>
             <Button onClick={()=>handleDecreaseProductQty(id)} variant='primary'>-</Button>
             <Button onClick={()=>handleRemoveProduct(id)} className='mx-2' variant='danger'>Remove</Button>

@@ -25,7 +25,6 @@ interface ShoppingCartContext{
     handleLogin:(username:string, password:string)=>void;
     handleLogout:()=>void;
 }
-
 export const ShoppingCartContext = createContext({} as ShoppingCartContext);   
 //if you try to access a property or method that isn’t in ShoppingCartContext, you’ll get a type error.
 
@@ -143,3 +142,6 @@ useEffect(()=>{
     </ShoppingCartContext.Provider>
     )
 }
+
+
+

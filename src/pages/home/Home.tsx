@@ -3,13 +3,14 @@ import Container from '../../components/container/Container';
 import FeaturedProducts from './FeaturedProducts';
 import PromoBanner from './PromoBanner';
 import { Link } from 'react-router-dom';
+import Intro from '../../assets/intro.jpg';
 
 const HomePage: React.FC = () => {
     return (
         <Container>
             {/* Header */}
             <header className="text-center p-8 bg-gray-100">
-                <h1 className="text-4xl font-bold text-gray-800">Welcome to ShopEasy</h1>
+                <h1 className="text-4xl font-bold text-gray-800">Welcome to OnlineShop</h1>
                 <p className="text-lg text-gray-600 mt-2">Your one-stop shop for everything!</p>
             </header>
             
@@ -22,11 +23,16 @@ const HomePage: React.FC = () => {
                         Shop Now
                     </button></Link>
                 </div>
-                <div className="md:w-1/2 mt-6 md:mt-0">
-                    <img className="w-full max-w-lg mx-auto rounded-lg shadow-lg" src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto/gigs/102897423/original/1e94566de4d632afa588363c05a752cefe218e01/design-creative-professional-shopping-website-banners.jpg" alt="Shopping banner" />
+                <div className="md:w-1/2 mt-3 md:mt-0">
+                    <img className="w-full max-w-l mx-auto " src= {Intro} alt="Shopping banner" />
                 </div>
             </section>
-            
+             {/* Featured Products */}
+            <section className="p-8 mt-6">
+                <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Featured Products</h2>
+                <FeaturedProducts />
+            </section>
+
             {/* Promo Banners */}
             <section className="flex flex-col md:flex-row justify-around gap-4 p-8 mt-6">
                 <PromoBanner title="Free Shipping" description="On all orders over $50" />
@@ -34,11 +40,7 @@ const HomePage: React.FC = () => {
                 <PromoBanner title="Limited Time Offer" description="Up to 50% off selected items" />
             </section>
             
-            {/* Featured Products */}
-            <section className="p-8 mt-6">
-                <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">Featured Products</h2>
-                <FeaturedProducts />
-            </section>
+
         </Container>
     );
 };
