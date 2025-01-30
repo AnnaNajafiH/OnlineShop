@@ -1,8 +1,13 @@
 import axios from "axios";
 
-const client=axios.create({
-    baseURL:"http://localhost:8001"
-})
+// const client=axios.create({
+//     baseURL:"http://localhost:8001"
+// })
+
+const client = axios.create({
+    baseURL: "https://onlineshop-7ug2.onrender.com"
+});
+
 
 export async function getProducts(){
     const {data}=await client("/Products")
