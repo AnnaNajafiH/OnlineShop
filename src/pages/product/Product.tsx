@@ -6,6 +6,8 @@ import { getProduct } from '../../services/api';
 import { IProduct } from '../../types/servers';
 import { Link } from 'react-router-dom';
 import { useShoppingCartContext } from '../../context/ShoppingCartContext';
+import { FaShoppingCart, FaTrash } from 'react-icons/fa'; 
+
 
 function Product() {
   const params = useParams<{ id: string }>();
@@ -39,29 +41,31 @@ function Product() {
             <p className="text-green-600 font-semibold lg:text-xl md:text-l sm:text-md">${product?.price}</p>
             <p className="text-gray-700 leading-relaxed lg:text-l md:text-md sm:text-md">{product?.description}</p>
 
-            <div className="mt-8 space-y-4">
+            <div className="flex flex-row  mt-8 justify-center items-center">
               {getProductQty(parseInt(params.id as string)) === 0 ? (
+    // Add to Cart Button (Before Adding Product)
                 <Button
-                  className="w-full py-3 bg-blue-800 hover:bg-blue-600 text-white rounded-md"
+                  className="py-3 px-6 bg-blue-800 hover:bg-blue-600 text-white rounded-md"
                   onClick={() => handleIncreaseProductQty(parseInt(params.id as string))}
                 >
                   Add to Cart
                 </Button>
               ) : (
-                <div className="space-y-4">
-                  <div className="grid grid-cols-3 gap-2 items-center">
+    // When Product is in Cart (Show - Qty + Remove)
+                <div className="flex items-center gap-9">
+                  <div className=" flex gap-2 items-center">
                     <Button
-                      className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+                      className="px-4 py-2 bg-blue-800 hover:bg-blue-600 text-white rounded-md"
                       onClick={() => handleDecreaseProductQty(parseInt(params.id as string))}
                     >
                       -
                     </Button>
                     
-                    <span className="text-center text-xl font-semibold text-gray-800">
+                    <span className="text-xl font-semibold text-gray-800">
                       {getProductQty(parseInt(params.id as string))}
                     </span>
                     <Button
-                      className="w-full bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+                      className="px-4 py-2 bg-blue-800 hover:bg-blue-600 text-white rounded-md"
                       onClick={() => handleIncreaseProductQty(parseInt(params.id as string))}
                     >
                       +
@@ -69,16 +73,19 @@ function Product() {
                   </div>
 
                   <Button
-                    className="w-full py-3 bg-red-500 hover:bg-red-600 text-white rounded-md"
+                    className=" py-3 bg-red-700 hover:bg-red-500 text-white rounded-md"
                     onClick={() => handleRemoveProduct(parseInt(params.id as string))}
                   >
-                    Remove from Cart
+                    <FaTrash style={{ fontSize: '24px', color: 'white' }} />  
                   </Button>
+                    <Link to={`/cart`} >
+                  <Button className="w-full py-1 my-2 mx-4 bg-yellow-700 hover:bg-yellow-600 text-white rounded-md">
+                   go to cart
+                  </Button>
+            </Link>
                 </div>
               )}
-            <Link to={`/cart`} >
-            <button className="w-full py-1 my-2 bg-yellow-500 hover:bg-yellow-600 text-white rounded-md">go to cart</button>
-            </Link>
+          
             </div>
           </div>
         </div>
