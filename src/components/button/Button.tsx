@@ -11,9 +11,15 @@ function Button({ children, variant, style, ...rest}: TButton) {
   // console.log(checkVariant(variant));
   
   return (
-    <button {...rest} style={{borderRadius:'6px', padding:'4px 8px', ...style,...checkVariant(variant)}}>    
+    <button {...rest} 
+    style={{borderRadius:'6px', padding:'4px 8px', 
+    ...style,
+    ...checkVariant(variant)
+    }}
+    >    
         {children}    
     </button>
+   
   )
 }
 

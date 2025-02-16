@@ -9,7 +9,7 @@ function ProductItem({ title, price, description, image }: TProductItem) {
       {/* Product Image */}
       <div className="relative">
         <img 
-          className="h-32 object-cover rounded-t-md mx-auto" 
+          className="h-32 object-cover rounded-t-md mx-auto mt-3" 
           src={image} 
           alt={title} 
         />
@@ -21,7 +21,7 @@ function ProductItem({ title, price, description, image }: TProductItem) {
       {/* Product Info */}
       <div className="p-5 space-y-3">
         <div className="flex justify-between items-center">
-          <h3 className="line-clamp-1 text-lg font-semibold text-gray-800">
+          <h3 className="line-clamp-1 text-lg font-semibold text-gray-800 hover:text-blue-800">
             {title}
           </h3>
           <p className="text-lg font-bold text-green-600">${price}</p>
@@ -33,7 +33,7 @@ function ProductItem({ title, price, description, image }: TProductItem) {
 
         {/* Action Button */}
         <button 
-          className="w-full py-2 mt-4 text-sm font-semibold text-white bg-blue-500 rounded-md hover:bg-blue-600 transition-colors duration-200"
+          className="w-full py-2 mt-4 text-sm font-semibold text-white bg-blue-800 rounded-md hover:bg-blue-600 transition-colors duration-200"
           aria-label={`Add ${title} to cart`}
         >
           more details

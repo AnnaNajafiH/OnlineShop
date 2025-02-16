@@ -26,24 +26,23 @@ function Product() {
   }, []);
 
   return (
-    <div className="bg-gray-100 py-10">
-      <Container>
-        <div className="shadow-lg rounded-lg bg-white grid grid-cols-12 overflow-hidden">
+        <Container>  
+        <div className="shadow-lg rounded-lg grid grid-cols-12 overflow-hidden min-h-screen">
           {/* Product Image Section */}
-          <div className="col-span-5 bg-white flex justify-center items-center p-2">
+          <div className="col-span-5 bg-white flex justify-center items-center mx-4">
             <img className="rounded-lg w-70 h-70 object-cover" src={product?.image} alt={product?.title} />
           </div>
 
           {/* Product Details Section */}
-          <div className="col-span-7 p-8 space-y-6 bg-slate-50">
-            <h1 className="font-bold text-gray-800 lg:text-3xl md:text-2xl sm:text-lg">{product?.title}</h1>
-            <p className="text-xl text-green-600 font-semibold">${product?.price}</p>
-            <p className="text-gray-700 text-md leading-relaxed lg:text-xl md:text-lg sm:text-md">{product?.description}</p>
+        <div className="col-span-7 p-10 space-y-6 bg-slate-50">
+            <h1 className="font-bold text-gray-600 hover:text-blue-800 lg:text-xl md:text-l sm:text-md">{product?.title}</h1>
+            <p className="text-green-600 font-semibold lg:text-xl md:text-l sm:text-md">${product?.price}</p>
+            <p className="text-gray-700 leading-relaxed lg:text-l md:text-md sm:text-md">{product?.description}</p>
 
             <div className="mt-8 space-y-4">
               {getProductQty(parseInt(params.id as string)) === 0 ? (
                 <Button
-                  className="w-full py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
+                  className="w-full py-3 bg-blue-800 hover:bg-blue-600 text-white rounded-md"
                   onClick={() => handleIncreaseProductQty(parseInt(params.id as string))}
                 >
                   Add to Cart
@@ -85,7 +84,6 @@ function Product() {
         </div>
         
       </Container>
-    </div>
   );
 }
 

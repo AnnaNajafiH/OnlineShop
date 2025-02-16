@@ -39,8 +39,6 @@ const HomePage: React.FC = () => {
                 <PromoBanner title="New Arrivals" description="Check out the latest products" />
                 <PromoBanner title="Limited Time Offer" description="Up to 50% off selected items" />
             </section>
-            
-
         </Container>
     );
 };
