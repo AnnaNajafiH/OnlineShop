@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
             {/* Hero Section */}
             <section className="flex flex-col md:flex-row items-center bg-blue-50 p-10 rounded-lg shadow-lg">
                 <div className="md:w-1/2 text-center md:text-left">
-                    <h2 className="text-3xl md:text-5xl font-bold text-blue-900">Discover Amazing Deals</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-blue-800">Discover Amazing Deals</h2>
                     <p className="text-lg text-gray-700 mt-4">Explore our range of products at unbeatable prices.</p>
                     <Link to={`/store`}><button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200">
                         Shop Now

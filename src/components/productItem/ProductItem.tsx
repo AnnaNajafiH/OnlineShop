@@ -9,7 +9,7 @@ function ProductItem({ title, price, description, image }: TProductItem) {
       {/* Product Image */}
       <div className="relative">
         <img 
-          className="h-32 object-cover rounded-t-md" 
+          className="h-32 object-cover rounded-t-md mx-auto" 
           src={image} 
           alt={title} 
         />

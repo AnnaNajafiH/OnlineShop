@@ -23,15 +23,15 @@ const handleLogoutAndCloseMenu = () => {
   };
   
   return (
-    <div className='h-18 border-b shadow bg-white flex items-center'>
+    <div className='h-18 border-b shadow items-center'>
         <Container>
         <div className='flex justify-between items-center'>
      {/* Left Side - Navigation Links */}
       <ul className='flex space-x-6 text-lg font-semibold text-gray-600'>
-        <li className='hover:text-gray-800 transition duration-200'>
+        <li className='hover:text-blue-800 transition duration-200'>
             <Link to="/" >Home</Link>
         </li>
-        <li className='hover:text-gray-800 transition duration-200'>
+        <li className='hover:text-blue-800 transition duration-200'>
             <Link to="/store">Store</Link>
         </li>
     </ul>
@@ -40,7 +40,7 @@ const handleLogoutAndCloseMenu = () => {
         {/* User Menu */}
         <div className='relative'>
             <button onClick={() => setIsMenuOpen (!isMenuOpen)}
-                className='font-semibold text-gray-600 hover:text-gray-800'>
+                className='font-semibold text-gray-600 hover:text-blue-800'>
                 <FaUser style={{ fontSize: '24px', color: '#333' }} />
             </button>
             {isMenuOpen && (
@@ -72,7 +72,7 @@ const handleLogoutAndCloseMenu = () => {
         </div>
         {/* Cart Icon */}
         <Link to="/cart" className='relative flex items-center'>
-        <button aria-label="Cart" className='text-gray-600 hover:text-gray-800 transition duration-200'>
+        <button aria-label="Cart" className='text-gray-600 hover:text-blue-800 transition duration-200'>
                 <FaShoppingCart size={26} /></button>
          {cartQty > 0 && (
                 <span className='absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 text-xs'>

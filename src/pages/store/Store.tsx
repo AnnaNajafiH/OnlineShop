@@ -23,9 +23,9 @@ const Store = () => {
   return (
 
     <div>
-      <h1 className='text-gray-800 text-2xl font-bold justify-center text-center mt-8 mb-6'>The newest Products</h1>
-      
      <Container>
+      <h1 className='text-gray-600 hover:text-blue-800 text-4xl font-bold justify-center text-center mt-7 mb-8'>The Newest Products</h1>
+      
        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 m-4'>
 
         {products.map((item)=>(
