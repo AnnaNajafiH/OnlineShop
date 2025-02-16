@@ -24,7 +24,7 @@ function CartItem({id,qty}:ICartItem ){
 
 
   return (
-    <div className="flex mt-4 border-b pb-3 shadow">
+    <div className="flex mt-2">
         <Link to={`/product/${id}`}>
         <img 
         className="rounded w-20"

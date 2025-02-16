@@ -34,7 +34,7 @@ function Cart() {
   return (
     <div className="bg-gray-100 min-h-screen py-10">
       <Container>
-        <h1 className="text-2xl font-semibold text-gray-800 mb-6">Your Shopping Cart</h1>
+        <h1 className="text-2xl font-semibold text-gray-800 hover:text-blue-800 mb-6">Your Shopping Cart</h1>
 
         {/* Cart Items List */}
         <div className="space-y-6 bg-white p-6 rounded-lg shadow-lg">
