@@ -29,7 +29,7 @@ function Product() {
 
   return (
         <Container>  
-        <div className="shadow-lg rounded-lg grid grid-cols-12 overflow-hidden min-h-screen">
+        <div className="lg:grid grid-cols-12 sm:flex-row overflow-hidden min-h-screen shadow-lg rounded-lg ">
           {/* Product Image Section */}
           <div className="col-span-5 bg-white flex justify-center items-center mx-4">
             <img className="rounded-lg w-70 h-70 object-cover" src={product?.image} alt={product?.title} />
@@ -37,9 +37,9 @@ function Product() {
 
           {/* Product Details Section */}
         <div className="col-span-7 p-10 space-y-6 bg-slate-50">
-            <h1 className="font-bold text-gray-600 hover:text-blue-800 lg:text-xl md:text-l sm:text-md">{product?.title}</h1>
+            <h1 className="font-bold text-gray-600 hover:text-blue-800 text-justify lg:text-xl md:text-l sm:text-md">{product?.title}</h1>
             <p className="text-green-600 font-semibold lg:text-xl md:text-l sm:text-md">${product?.price}</p>
-            <p className="text-gray-700 leading-relaxed lg:text-l md:text-md sm:text-md">{product?.description}</p>
+            <p className="text-gray-600 leading-relaxed text-justify lg:text-l md:text-md sm:text-sm">{product?.description}</p>
 
             <div className="flex flex-row  mt-8 justify-center items-center">
               {getProductQty(parseInt(params.id as string)) === 0 ? (
@@ -79,7 +79,7 @@ function Product() {
                     <FaTrash style={{ fontSize: '24px', color: 'white' }} />  
                   </Button>
                     <Link to={`/cart`} >
-                  <Button className="w-full py-1 my-2 mx-4 bg-yellow-700 hover:bg-yellow-600 text-white rounded-md">
+                  <Button className="w-full py-1 my-2 mx-4 bg-yellow-700 hover:bg-yellow-600 text-white rounded-md ">
                    go to cart
                   </Button>
             </Link>
