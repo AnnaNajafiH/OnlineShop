@@ -21,7 +21,7 @@ function ProductItem({ title, price, description, image }: TProductItem) {
       {/* Product Info */}
       <div className="p-5 space-y-3">
         <div className="flex justify-between items-center">
-          <h3 className="line-clamp-1 text-lg font-semibold text-gray-800 hover:text-blue-800">
+          <h3 className="line-clamp-1 text-lg font-semibold text-gray-700 hover:text-blue-800">
             {title}
           </h3>
           <p className="text-lg font-bold text-green-600">${price}</p>

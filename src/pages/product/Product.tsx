@@ -10,12 +10,16 @@ import { FaShoppingCart, FaTrash } from 'react-icons/fa';
 
 function Product() {
   const params = useParams<{ id: string }>();
+  // console.log(params);
+  // console.log(params.id);
   const [product, setProduct] = useState<IProduct | null>(null);
   
   const { handleDecreaseProductQty, handleIncreaseProductQty, cartItems, getProductQty, handleRemoveProduct } = useShoppingCartContext();
 
   useEffect(() => {
     getProduct(params.id as string).then((data) => {
+      // console.log(data);
+      // console.log(data.rating);
       setProduct(data);
     });
   }, []);
@@ -61,7 +65,7 @@ function Product() {
                   >
                     -
                   </Button>
-                  <span className="text-lg font-semibold text-gray-800">
+                  <span className="text-lg font-semibold text-gray-600">
                     {getProductQty(parseInt(params.id as string))}
                   </span>
                   <Button

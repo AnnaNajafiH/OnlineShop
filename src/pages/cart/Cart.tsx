@@ -2,6 +2,7 @@ import CartItem from "../../components/cartItem/CartItem";
 import Container from "../../components/container/Container";
 import Button from "../../components/button/Button";
 import { useShoppingCartContext } from "../../context/ShoppingCartContext";
+import { Link } from "react-router-dom";
 
 
 import { useMemo } from "react";
@@ -32,12 +33,17 @@ function Cart() {
 
 
   return (
-    <div className="bg-gray-100 min-h-screen py-10">
+    <div className="bg-gray-100 min-h-screen">
       <Container>
-        <h1 className="text-2xl font-semibold text-gray-600 hover:text-blue-800 mb-6">Your Shopping Cart</h1>
+        <h1 className="text-3xl font-semibold text-gray-600 hover:text-blue-800 mb-5 pl-2">Your Shopping Cart</h1>
 
         {/* Cart Items List */}
         <div className="space-y-6 bg-white p-6 rounded-lg shadow-lg">
+          <Link to={`/store`}>
+            <Button className="px-8 py-3 text-lg font-semibold rounded bg-blue-800 hover:bg-blue-600 text-white transition-colors duration-200"> 
+               go back shopping
+            </Button> 
+          </Link>
           {cartItems.length > 0 ? (
             cartItems.map((item) => (
               <CartItem key={item.id} {...item} />

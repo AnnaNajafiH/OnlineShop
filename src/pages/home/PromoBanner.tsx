@@ -8,8 +8,8 @@ interface PromoBannerProps {
 const PromoBanner: React.FC<PromoBannerProps> = ({ title, description }) => {
     return (
         <div className="bg-blue-100 p-6 rounded-lg shadow-md text-center transition-transform transform hover:scale-105">
-            <h3 className="text-2xl font-bold text-blue-900">{title}</h3>
-            <p className="text-gray-700 mt-2">{description}</p>
+            <h3 className="text-2xl font-bold text-blue-800">{title}</h3>
+            <p className="text-gray-600 mt-2">{description}</p>
         </div>
     );
 };
