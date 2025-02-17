@@ -11,48 +11,62 @@ interface ICartItem {
     qty: number;
 }
 
-function CartItem({id,qty}:ICartItem ){
-
+function CartItem({ id, qty }: ICartItem) {
   const [product, setProduct] = useState<IProduct>();
 
-  const {handleIncreaseProductQty,handleDecreaseProductQty,handleRemoveProduct}=useShoppingCartContext();
+  const { handleIncreaseProductQty, handleDecreaseProductQty, handleRemoveProduct } = useShoppingCartContext();
 
-    useEffect(()=>{
-      getProduct(id).then(data=>{
-       setProduct(data)
-      })
-    },[])
-
+  useEffect(() => {
+    getProduct(id).then(data => {
+      setProduct(data);
+    });
+  }, [id]);
 
   return (
-    <div className="flex mt-2">
-        <Link to={`/product/${id}`}>
+    <div className="flex flex-wrap sm:flex-col gap-4 mt-4 p-4 border rounded-lg shadow-md bg-white">
+      
+      {/* Product Image with Link */}
+      <Link to={`/product/${id}`} className="flex-shrink-0">
         <img 
-        className="rounded w-20"
-        src={product?.image} alt="" />
-        </Link>
-        <div className='ml-8'>
-            <h3 className="m-5">{product?.title}</h3>
-            <div className=' flex items-center gap-9 ml-6'>
-            <div className="flex gap-2 items-center">
-              <Button onClick={()=>handleIncreaseProductQty(id)} 
-            className="px-4 py-2 bg-blue-800 hover:bg-blue-600 text-white rounded-md">+
-            </Button>
-            <span className='mx-2'>{qty}</span>
-            <Button onClick={()=>handleDecreaseProductQty(id)} 
-            className="px-4 py-2 bg-blue-800 hover:bg-blue-600 text-white rounded-md"
+          className="rounded w-20 sm:w-16 object-cover"
+          src={product?.image} 
+          alt={product?.title} 
+        />
+      </Link>
+
+      {/* Product Details */}
+      <div className="flex flex-col flex-grow">
+        <h3 className="lg:text-lg sm:text-md font-semibold text-gray-600">{product?.title}</h3>
+
+        {/* Quantity & Actions */}
+        <div className="flex flex-wrap items-center gap-4 sm:gap-2 mt-2">
+          
+          {/* Quantity Controls */}
+          <div className="flex items-center gap-2">
+            <Button 
+              onClick={() => handleDecreaseProductQty(id)}
+              className="px-3 py-2 bg-blue-800 hover:bg-blue-600 text-white rounded-md"
             >-</Button>
-            </div>
 
-            <Button onClick={()=>handleRemoveProduct(id)} 
-            className=" py-3 bg-red-700 hover:bg-red-500 text-white rounded-md ml-4">
-            <FaTrash style={{ fontSize: '24px', color: 'white' }} /> 
-            </Button>
-            </div>
+            <span className="text-lg font-semibold">{qty}</span>
+
+            <Button 
+              onClick={() => handleIncreaseProductQty(id)}
+              className="px-3 py-2 bg-blue-800 hover:bg-blue-600 text-white rounded-md"
+            >+</Button>
+          </div>
+
+          {/* Remove Button */}
+          <Button 
+            onClick={() => handleRemoveProduct(id)} 
+            className="p-3 bg-red-700 hover:bg-red-500 text-white rounded-md"
+          >
+            <FaTrash style={{ fontSize: '20px' }} /> 
+          </Button>
         </div>
-
+      </div>
     </div>
-  )
+  );
 }
 
-export default CartItem
+export default CartItem;
